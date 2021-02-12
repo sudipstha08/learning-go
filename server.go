@@ -5,6 +5,7 @@ import (
 	"learning-go/controller"
 	"learning-go/middlewares"
 	"learning-go/service"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -24,12 +25,6 @@ func setupLogOutput() {
 }
 
 func main() {
-	// Router := gin.Default()
-	// Router.GET("/test", func(ctx *gin.Context) {
-	// 	ctx.JSON(200, gin.H{
-	// 		"message": "ok!!!",
-	// 	})
-	// })
 	setupLogOutput()
 	Router := gin.New()
 	// Router.Use(gin.Recovery(), gin.Logger())
@@ -39,8 +34,16 @@ func main() {
 	})
 
 	Router.POST("/videos", func(ctx *gin.Context) {
-		ctx.JSON(200, videoController.Save(ctx))
+		err := videoController.Save(ctx)
+		if err != nil {
+			ctx.JSON(http.StatusBadRequest, gin.H{
+				"Error in adding videos": err.Error(),
+			})
+		} else {
+			ctx.JSON(http.StatusOK, gin.H{"message": "Video added successfully"})
+		}
 	})
+
 	// LISTEN AND SERVE ON 127.0.0.1:8080
 	Router.Run(":8080")
 }
