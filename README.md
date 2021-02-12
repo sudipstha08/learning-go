@@ -1,5 +1,6 @@
-# LEARNING-GO
-  -> statically typed, compiled programming language
+# LEARNING-GO :simple_smile:
+  * statically typed
+  * compiled programming language
 ### BASIC COMMANDS
 |       Commands      |             Description             |
 |---------------------|-------------------------------------|
