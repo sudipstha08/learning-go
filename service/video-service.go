@@ -1,7 +1,7 @@
 package service
 
 import (
-	"go_crash_course/entity"
+	"learning-go/entity"
 )
 
 type VideoService interface {
@@ -13,7 +13,8 @@ type videoService struct {
 	videos []entity.Video
 }
 
-// CREATE A NEW INSTANCE FOR THE VIDEO
+// Create a new instance for the video
+
 func New() VideoService {
 	return &videoService{}
 }

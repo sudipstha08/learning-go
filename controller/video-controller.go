@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"go_crash_course/entity"
-	"go_crash_course/service"
+	"learning-go/entity"
+	"learning-go/service"
 
 	"github.com/gin-gonic/gin"
 )
