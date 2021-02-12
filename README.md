@@ -1,7 +1,7 @@
-# LEARNING-GO :slightly_smiling_face:
-  * statically typed
-  * compiled programming language
-### BASIC COMMANDS
+# :one: LEARNING-GO :slightly_smiling_face:
+  * Statically typed
+  * Compiled programming language
+### :two: BASIC COMMANDS
 |       Commands      |             Description             |
 |---------------------|-------------------------------------|
 | go                  | list go commands                    |
@@ -19,7 +19,7 @@
 | go run              | compile temporary files and run the application |
 | go mod init go_module |  initialize the current directory as the root of the module |
 
-### REFERENCES
+### :three: REFERENCES
 1. [https://medium.com/technofunnel/understanding-golang-and-goroutines-72ac3c9a014d]
 2. [https://medium.com/technofunnel/understanding-goroutine-go-channels-in-detail-9c5a28f08e0d]
 3. [https://medium.com/technofunnel/error-handling-in-golang-with-panic-defer-and-recover-d77db7ae3875]
