@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_crash_course/03_packages/grettings"
+	"learning-go/03_packages/grettings"
 )
 
 func main() {

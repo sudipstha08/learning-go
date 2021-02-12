@@ -1,15 +1,15 @@
-// GO ROUTINES - CONCURRENCY && PARALLELISM
-
+// CONCURRENCY WITH PARALLELSIM
 package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 )
 
-// ADD GOROUTINE BY USING KEYWORD "go"
-// CONCURRENCY
 func main() {
+	// ADDING AN EXECUTION CORE
+	runtime.GOMAXPROCS(4)
 	start := time.Now()
 	go func() {
 		for i := 0; i < 3; i++ {
