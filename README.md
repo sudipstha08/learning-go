@@ -1,5 +1,4 @@
-# LEARNING-GO 
-:simple_smile:
+# LEARNING-GO :slightly_smiling_face:
   * statically typed
   * compiled programming language
 ### BASIC COMMANDS
