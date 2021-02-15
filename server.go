@@ -31,20 +31,29 @@ func main() {
 	Router.Static("/css", "./templates/css")
 	Router.LoadHTMLGlob("templates/*.html")
 	Router.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
-	Router.GET("/videos", func(ctx *gin.Context) {
-		ctx.JSON(200, videoController.FindAll())
-	})
 
-	Router.POST("/videos", func(ctx *gin.Context) {
-		err := videoController.Save(ctx)
-		if err != nil {
-			ctx.JSON(http.StatusBadRequest, gin.H{
-				"Error in adding videos": err.Error(),
-			})
-		} else {
-			ctx.JSON(http.StatusOK, gin.H{"message": "Video added successfully"})
-		}
-	})
+	apiRoutes := Router.Group("/api")
+	{
+		apiRoutes.GET("/videos", func(ctx *gin.Context) {
+			ctx.JSON(200, videoController.FindAll())
+		})
+
+		apiRoutes.POST("/videos", func(ctx *gin.Context) {
+			err := videoController.Save(ctx)
+			if err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{
+					"Error in adding videos": err.Error(),
+				})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{"message": "Video added successfully"})
+			}
+		})
+	}
+
+	viewRoutes := Router.Group("/view")
+	{
+		viewRoutes.GET("/videos", videoController.ShowAll)
+	}
 
 	// LISTEN AND SERVE ON 127.0.0.1:8080
 	Router.Run(":8080")
