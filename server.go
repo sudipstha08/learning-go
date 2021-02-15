@@ -47,7 +47,7 @@ func main() {
 				"token": token,
 			})
 		} else {
-			ctx.JSON(http.StatusUnauthorized, gin.H {
+			ctx.JSON(http.StatusUnauthorized, gin.H{
 				"error": "Invalid username or password",
 			})
 		}
@@ -80,7 +80,7 @@ func main() {
 	// LISTEN AND SERVE ON 127.0.0.1:5000
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "5000"
 	}
 	Router.Run(":" + port)
 }
