@@ -28,6 +28,8 @@ func main() {
 	setupLogOutput()
 	Router := gin.New()
 	// Router.Use(gin.Recovery(), gin.Logger())
+	Router.Static("/css", "./templates/css")
+	Router.LoadHTMLGlob("templates/*.html")
 	Router.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
 	Router.GET("/videos", func(ctx *gin.Context) {
 		ctx.JSON(200, videoController.FindAll())
