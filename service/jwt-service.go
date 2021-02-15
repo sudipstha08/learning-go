@@ -41,8 +41,6 @@ func getSecretKey() string {
 }
 
 func (jwtSrv *jwtService) GenerateToken(username string, admin bool) string {
-	fmt.Println("token")
-
 	// Set custom and standard claims
 	claims := &jwtCustomClaims{
 		username,

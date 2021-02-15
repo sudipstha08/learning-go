@@ -6,6 +6,6 @@ import (
 
 func BasicAuth() gin.HandlerFunc {
 	return gin.BasicAuth(gin.Accounts{
-		"sudipstha": "pass1234",
+		"Testusername": "pass1234",
 	})
 }

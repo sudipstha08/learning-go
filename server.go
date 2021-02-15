@@ -1,13 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"learning-go/controller"
 	"learning-go/middlewares"
 	"learning-go/service"
 	"net/http"
 	"os"
+
+	"github.com/joho/godotenv"
 
 	"github.com/gin-gonic/gin"
 	// gindump as alias
@@ -32,6 +33,7 @@ func setupLogOutput() {
 func main() {
 	setupLogOutput()
 	Router := gin.New()
+	godotenv.Load(".env")
 	// Router.Use(gin.Recovery(), gin.Logger())
 	Router.Static("/css", "./templates/css")
 	Router.LoadHTMLGlob("templates/*.html")
@@ -39,14 +41,15 @@ func main() {
 	Router.Use(gin.Recovery(), gin.Logger())
 
 	Router.POST("/login", func(ctx *gin.Context) {
-		fmt.Println("Helllooo")
 		token := loginController.Login(ctx)
 		if token != "" {
 			ctx.JSON(http.StatusOK, gin.H{
 				"token": token,
 			})
 		} else {
-			ctx.JSON(http.StatusUnauthorized, nil)
+			ctx.JSON(http.StatusUnauthorized, gin.H {
+				"error": "Invalid username or password",
+			})
 		}
 	})
 
@@ -74,6 +77,10 @@ func main() {
 		viewRoutes.GET("/videos", videoController.ShowAll)
 	}
 
-	// LISTEN AND SERVE ON 127.0.0.1:8080
-	Router.Run(":8080")
+	// LISTEN AND SERVE ON 127.0.0.1:5000
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	Router.Run(":" + port)
 }

@@ -11,12 +11,11 @@ type loginService struct {
 
 func NewLoginService() LoginService {
 	return &loginService{
-		authorizedUsername: "pragmatic",
-		authorizedPassword: "reviews",
+		authorizedUsername: "sudipstha",
+		authorizedPassword: "pass1234",
 	}
 }
 
 func (service *loginService) Login(username string, password string) bool {
 	return service.authorizedUsername == username && service.authorizedPassword == password
 }
-

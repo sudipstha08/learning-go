@@ -4,9 +4,10 @@ import (
 	"log"
 	"net/http"
 
+	"learning-go/service"
+
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"learning-go/service"
 )
 
 // AuthorizeJWT validates the token from the http request, returning a 401 if it's not valid
