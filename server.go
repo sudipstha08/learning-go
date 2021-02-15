@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"learning-go/controller"
 	"learning-go/middlewares"
@@ -10,12 +11,16 @@ import (
 
 	"github.com/gin-gonic/gin"
 	// gindump as alias
-	gindump "github.com/tpkeeper/gin-dump" // DEBUGGER
+	// gindump "github.com/tpkeeper/gin-dump" // DEBUGGER
 )
 
 var (
-	videoService    service.VideoService       = service.New()
+	videoService service.VideoService = service.New()
+	loginService service.LoginService = service.NewLoginService()
+	jwtService   service.JWTService   = service.NewJWTService()
+
 	videoController controller.VideoController = controller.New(videoService)
+	loginController controller.LoginController = controller.NewLoginController(loginService, jwtService)
 )
 
 // Creates a log file
@@ -30,9 +35,23 @@ func main() {
 	// Router.Use(gin.Recovery(), gin.Logger())
 	Router.Static("/css", "./templates/css")
 	Router.LoadHTMLGlob("templates/*.html")
-	Router.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
+	// Router.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
+	Router.Use(gin.Recovery(), gin.Logger())
 
-	apiRoutes := Router.Group("/api")
+	Router.POST("/login", func(ctx *gin.Context) {
+		fmt.Println("Helllooo")
+		token := loginController.Login(ctx)
+		if token != "" {
+			ctx.JSON(http.StatusOK, gin.H{
+				"token": token,
+			})
+		} else {
+			ctx.JSON(http.StatusUnauthorized, nil)
+		}
+	})
+
+	// JWT Authorization Middleware applies to "/api" only.
+	apiRoutes := Router.Group("/api", middlewares.AuthorizeJWT())
 	{
 		apiRoutes.GET("/videos", func(ctx *gin.Context) {
 			ctx.JSON(200, videoController.FindAll())

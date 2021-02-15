@@ -19,6 +19,13 @@
 | go run              | compile temporary files and run the application |
 | go mod init go_module |  initialize the current directory as the root of the module |
 
+### TECHNOLOGIES USED
+|    Tools    |     Description          |
+|-------------|--------------------------|
+|   Go        |    Programming Language  |
+|   Gin       |    HTTP web frameweok    |
+|   JWT       |      Authorization       |
+
 ### :two: REFERENCES
 1. [https://medium.com/technofunnel/understanding-golang-and-goroutines-72ac3c9a014d]
 2. [https://medium.com/technofunnel/understanding-goroutine-go-channels-in-detail-9c5a28f08e0d]
