@@ -1,8 +1,8 @@
 package main
 
 import (
+	"basics/03_packages/greetings"
 	"fmt"
-	"learning-go/03_packages/grettings"
 )
 
 func main() {
