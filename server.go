@@ -4,6 +4,7 @@ import (
 	"io"
 	"learning-go/controller"
 	"learning-go/middlewares"
+	"learning-go/repository"
 	"learning-go/service"
 	"net/http"
 	"os"
@@ -16,9 +17,10 @@ import (
 )
 
 var (
-	videoService service.VideoService = service.New()
-	loginService service.LoginService = service.NewLoginService()
-	jwtService   service.JWTService   = service.NewJWTService()
+	videoRepository repository.VideoRepository = repository.NewVideoRepository()
+	videoService    service.VideoService       = service.New(videoRepository)
+	loginService    service.LoginService       = service.NewLoginService()
+	jwtService      service.JWTService         = service.NewJWTService()
 
 	videoController controller.VideoController = controller.New(videoService)
 	loginController controller.LoginController = controller.NewLoginController(loginService, jwtService)
@@ -31,8 +33,14 @@ func setupLogOutput() {
 }
 
 func main() {
+	// CLOSE THE DATABASE
+	defer videoRepository.CloseDB()
+
 	setupLogOutput()
+
 	Router := gin.New()
+
+	// LOAD ENV VARIABLES
 	godotenv.Load(".env")
 	// Router.Use(gin.Recovery(), gin.Logger())
 	Router.Static("/css", "./templates/css")
@@ -68,6 +76,32 @@ func main() {
 				})
 			} else {
 				ctx.JSON(http.StatusOK, gin.H{"message": "Video added successfully"})
+			}
+		})
+
+		apiRoutes.PUT("/videos/:id", func(ctx *gin.Context) {
+			err := videoController.Update(ctx)
+			if err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{
+					"error": err.Error(),
+				})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{
+					"message": "Success",
+				})
+			}
+		})
+
+		apiRoutes.DELETE("/videos/:id", func(ctx *gin.Context) {
+			err := videoController.Delete(ctx)
+			if err != nil {
+				ctx.JSON(http.StatusBadRequest, gin.H{
+					"error": err.Error(),
+				})
+			} else {
+				ctx.JSON(http.StatusOK, gin.H{
+					"message": "Success",
+				})
 			}
 		})
 	}
