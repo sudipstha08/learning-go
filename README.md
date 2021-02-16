@@ -26,6 +26,7 @@
 |   Gin       |    HTTP web frameweok    |
 |   JWT       |      Authorization       |
 |   GORM      | Full featured Go ORM library |
+|   SQLite    | Small SQL database engine    |
 
 ### :three: REFERENCES
 1. [https://medium.com/technofunnel/understanding-golang-and-goroutines-72ac3c9a014d]
