@@ -53,3 +53,11 @@ func main() {
 
 	fmt.Println(person2.greet())
 }
+
+// instantiate a struct
+// p := Person{}
+
+// Get a pointer to a new instance
+// p := &Person{}
+// OR
+// p := new(Person)

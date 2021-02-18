@@ -3,6 +3,7 @@ package main
 import (
 	"io"
 	"learning-go/controller"
+	"learning-go/httpd/handler"
 	"learning-go/middlewares"
 	"learning-go/repository"
 	"learning-go/service"
@@ -110,6 +111,8 @@ func main() {
 	{
 		viewRoutes.GET("/videos", videoController.ShowAll)
 	}
+
+	Router.GET("/ping", handler.PingGet())
 
 	// LISTEN AND SERVE ON 127.0.0.1:5000
 	port := os.Getenv("PORT")
