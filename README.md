@@ -31,7 +31,11 @@
 |   GORM      | Full featured Go ORM library |
 |   SQLite    | Small SQL database engine    |
 
-### :three: REFERENCES
+### :three: PROJECT SETUP
+  1. Clone the repo
+  2. Create .env file in the root directory with the help of .env.example file
+
+### :four: REFERENCES
 1. [https://medium.com/technofunnel/understanding-golang-and-goroutines-72ac3c9a014d]
 2. [https://medium.com/technofunnel/understanding-goroutine-go-channels-in-detail-9c5a28f08e0d]
 3. [https://medium.com/technofunnel/error-handling-in-golang-with-panic-defer-and-recover-d77db7ae3875]
