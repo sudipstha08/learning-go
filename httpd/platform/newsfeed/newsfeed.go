@@ -1,5 +1,14 @@
 package newsfeed
 
+type Getter interface {
+	// GetAll will return the slice of items
+	GetAll() []Item
+}
+
+type Adder interface {
+	// Adder will take one otem
+	Add(item Item)
+}
 type Item struct {
 	Title string `json:"title"`
 	Post  string `json:"post"`
@@ -11,7 +20,9 @@ type Repo struct {
 
 // constructor
 func New() *Repo {
-	return &Repo{}
+	return &Repo{
+		Items: []Item{},
+	}
 }
 
 func (r *Repo) Add(item Item) {

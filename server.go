@@ -4,6 +4,7 @@ import (
 	"io"
 	"learning-go/controller"
 	"learning-go/httpd/handler"
+	"learning-go/httpd/platform/newsfeed"
 	"learning-go/middlewares"
 	"learning-go/repository"
 	"learning-go/service"
@@ -112,7 +113,11 @@ func main() {
 		viewRoutes.GET("/videos", videoController.ShowAll)
 	}
 
+	// NEWS FEED ENDPOINTS
+	feed := newsfeed.New()
 	Router.GET("/ping", handler.PingGet())
+	Router.GET("/newsfeed", handler.NewsfeedGet(feed))
+	Router.POST("/newsfeed", handler.NewsfeedPost(feed))
 
 	// LISTEN AND SERVE ON 127.0.0.1:5000
 	port := os.Getenv("PORT")

@@ -12,6 +12,8 @@
 | go get              | get remote packages                 |  
 | go install          |  compiles all packages and generates files |
 | go test             | test all your test files (*_test.go) | 
+| go test ./...       |                                      |
+| go test -cover ./...|                                     |
 | godoc package_name  | look up the package documentation   |
 | go fix              | upgrade code from an old version to a new version |
 | go version          | get information about your version of Go |
