@@ -2,10 +2,11 @@ package repository
 
 import (
 	"learning-go/entity"
-	"github.com/jinzhu/gorm"
-)
 
-import _ "github.com/jinzhu/gorm/dialects/sqlite"
+	"github.com/jinzhu/gorm"
+
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+)
 
 type VideoRepository interface {
 	Save(video entity.Video)

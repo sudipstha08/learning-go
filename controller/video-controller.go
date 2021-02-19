@@ -2,7 +2,7 @@ package controller
 
 import (
 	"learning-go/entity"
-	"learning-go/service"
+	"learning-go/services"
 	"learning-go/validators"
 	"strconv"
 

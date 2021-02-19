@@ -44,3 +44,4 @@
 6. [https://towardsdatascience.com/building-restful-apis-in-golang-e3fe6e3f8f95]
 7. [https://tutorialedge.net/golang/creating-restful-api-with-golang/]
 8. [https://gorm.io/docs/]
+9. [https://github.com/irahardianto/service-pattern-go]
