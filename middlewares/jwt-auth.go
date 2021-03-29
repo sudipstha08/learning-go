@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"learning-go/service"
+	"learning-go/services"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"

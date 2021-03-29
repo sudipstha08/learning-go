@@ -2,7 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"learning-go/service"
+	"learning-go/services"
 	"learning-go/dto"
 )
 
