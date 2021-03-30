@@ -45,3 +45,4 @@
 7. [https://tutorialedge.net/golang/creating-restful-api-with-golang/]
 8. [https://gorm.io/docs/]
 9. [https://github.com/irahardianto/service-pattern-go]
+10. [https://github.com/Alikhll/golang-developer-roadmap]
