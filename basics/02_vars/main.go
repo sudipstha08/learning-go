@@ -28,4 +28,24 @@ func main() {
 
 	fmt.Println(name, age, isCool, email)
 	fmt.Printf("%T\n", size)
+
+	// Multiple variables can be declared in one statement.
+	// var var_1, var_2 = value_1, value_2
+
+	//	you can use the multiple-line variable declaration syntax.
+	// const (
+		// const_1 = value_1
+		// const_2 = value_2
+	// )
+
+
+	// iota that can be used when declaring enumerated constants. 
+	// This keyword yields an incremented value by 1 starting from 0, 
+	// each time it is used.
+	const (
+    a = iota // a == 0
+    b = iota // b == 1
+    c = iota // c == 2
+    d        // d == 3 (implicitely d = iota)
+)
 }
