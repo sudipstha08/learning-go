@@ -15,3 +15,7 @@ func calculateArea(radius int) (int, error) {
 	}
 	return radius * radius, nil
 }
+
+func main() {
+	calculateArea(5)
+}

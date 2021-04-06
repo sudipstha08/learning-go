@@ -23,4 +23,10 @@ func main() {
 	// Delete from map
 	delete(emails, "Bob")
 	fmt.Println(emails)
+
+	// Two value assignments
+	// p is the presence of the key
+	id, p := emails["testmail@gmail.com"]
+	fmt.Println(id)
+	fmt.Println(p)
 }

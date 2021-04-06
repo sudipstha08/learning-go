@@ -58,6 +58,7 @@ func main() {
 // p := Person{}
 
 // Get a pointer to a new instance
+// Initialize fields to zero
 // p := &Person{}
 // OR
 // p := new(Person)
