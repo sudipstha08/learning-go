@@ -13,5 +13,12 @@ func main() {
 
 	fmt.Println(x)
 	fmt.Println(y)
-}
 
+	// [...] in array literals infers size from number of initializers
+	z := [...]int{1, 2, 3, 4, 5}    // size of z is 5
+	fmt.Println(z)
+
+	for idx, value := range z {
+		fmt.Printf("index: %d , value: %d \n", idx, value)
+	}
+}
