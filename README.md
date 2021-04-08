@@ -46,3 +46,4 @@
 8. [https://gorm.io/docs/]
 9. [https://github.com/irahardianto/service-pattern-go]
 10. [https://github.com/Alikhll/golang-developer-roadmap]
+11. https://tutorialedge.net/projects/chat-system-in-go-and-react/
