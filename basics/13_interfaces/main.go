@@ -37,3 +37,6 @@ func main() {
 	fmt.Printf("Circle Area: %f\n", getArea(circle))
 	fmt.Printf("Rectangle Area: %f\n", getArea(rectangle))
 }
+
+// https://www.youtube.com/watch?v=qJKQZKGZgf0
+// https://www.youtube.com/watch?v=lh_Uv2imp14&t=306s
