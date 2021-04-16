@@ -24,6 +24,8 @@ func GetRoutes() {
 	VideosRoute(Router)
 	AuthRoutes(Router)
 	NewsFeedRoutes(Router)
+	FileRoutes(Router)
+
 	// routes.BooksRoutes(Router)
 
 	// LISTEN AND SERVE ON 127.0.0.1:5000
