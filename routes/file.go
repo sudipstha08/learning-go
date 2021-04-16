@@ -6,8 +6,10 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 )
 
 func upload(c *gin.Context) {
@@ -17,7 +19,10 @@ func upload(c *gin.Context) {
 		return
 	}
 	filename := header.Filename
-	out, err := os.Create("public/" + filename)
+	extension := filepath.Ext(filename)
+	// Generate random file name for the new uploaded file so it doesn't override the old file with same name
+	HashedFileName := uuid.New().String() + extension
+	out, err := os.Create("public/" + HashedFileName)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,7 +31,7 @@ func upload(c *gin.Context) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	filepath := "http://localhost:8080/file/upload" + filename
+	filepath := "http://localhost:8080/file/upload/" + HashedFileName
 	c.JSON(http.StatusOK, gin.H{"filepath": filepath})
 }
 
