@@ -47,3 +47,4 @@
 9. [https://github.com/irahardianto/service-pattern-go]
 10. [https://github.com/Alikhll/golang-developer-roadmap]
 11. https://tutorialedge.net/projects/chat-system-in-go-and-react/
+12. https://medium.com/wesionary-team/dependency-injection-with-go-fx-b698a6585cf0

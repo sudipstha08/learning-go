@@ -1,3 +1,4 @@
+// An interface is two things: it is a set of methods, but it is also a type
 package main
 
 import "fmt"
@@ -20,3 +21,5 @@ func main() {
 
 	fmt.Printf("%#v %T", b.Msg, b.Msg) //Output:  5 int
 }
+
+// https://jordanorelli.com/post/32665860244/how-to-use-interfaces-in-go
