@@ -33,7 +33,8 @@
 
 ### :three: PROJECT SETUP
   1. Clone the repo
-  2. Create .env file in the root directory with the help of .env.example file
+  2. Create `.env` file in the root directory with the help of `.env.example` file
+  3. Run app `make dev`
 
 ### :four: REFERENCES
 1. [https://medium.com/technofunnel/understanding-golang-and-goroutines-72ac3c9a014d]
@@ -46,5 +47,6 @@
 8. [https://gorm.io/docs/]
 9. [https://github.com/irahardianto/service-pattern-go]
 10. [https://github.com/Alikhll/golang-developer-roadmap]
-11. https://tutorialedge.net/projects/chat-system-in-go-and-react/
-12. https://medium.com/wesionary-team/dependency-injection-with-go-fx-b698a6585cf0
+11. [https://tutorialedge.net/projects/chat-system-in-go-and-react/]
+12. [https://medium.com/wesionary-team/dependency-injection-with-go-fx-b698a6585cf0]
+13. [https://www.golangprograms.com/go-language.html]
