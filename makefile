@@ -1,2 +1,2 @@
 dev:
-	go run server.go
+	air server.go
