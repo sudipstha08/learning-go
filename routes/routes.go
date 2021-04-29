@@ -25,6 +25,7 @@ func GetRoutes() {
 	AuthRoutes(Router)
 	NewsFeedRoutes(Router)
 	FileRoutes(Router)
+	CsvRoutes(Router)
 
 	// routes.BooksRoutes(Router)
 
