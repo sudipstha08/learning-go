@@ -1,0 +1,23 @@
+# A cron.yaml file in the root directory of your application (alongside app.yaml) 
+# configures scheduled tasks for your Go application
+
+# Cron jobs are time-based jobs which are programmed to run on a 
+# specific time interval. App Engine cron service automatically 
+# triggers the cron jobs that operate at a regular interval or defined 
+# time. App Engine cron service will invoke a URL by using a HTTP get request.
+
+#  The URL in your app to which you want the Cron service to send job requests
+cron:
+- description: daily summary job
+  url: /tasks/summary
+  schedule: every 24 hours
+- description: monday morning mailout
+  url: /mail/weekly
+  schedule: every monday 09:00
+  timezone: Australia/NSW
+- description: new daily summary job
+  url: /tasks/summary
+  schedule: every 4 hours
+  timezone: Japan
+
+  # https://medium.com/wesionary-team/scheduling-jobs-with-cron-yaml-in-golang-app-ec9c9db81004
