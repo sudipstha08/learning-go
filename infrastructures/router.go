@@ -4,6 +4,7 @@ import (
 	"learning-go/routes"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,6 +19,7 @@ func GetRoutes() {
 	// Router.Use(gin.Recovery(), gin.Logger())
 	// Router.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth(), gindump.Dump())
 	Router.Use(gin.Recovery(), gin.Logger())
+	Router.Use(cors.Default())
 
 	// ROUTES
 	routes.ArticlesRoutes(Router)
@@ -26,6 +28,7 @@ func GetRoutes() {
 	routes.NewsFeedRoutes(Router)
 	routes.FileRoutes(Router)
 	routes.CsvRoutes(Router)
+	routes.RecaptchaRoutes(Router)
 
 	// LISTEN AND SERVE ON 127.0.0.1:5000
 	port := os.Getenv("PORT")
