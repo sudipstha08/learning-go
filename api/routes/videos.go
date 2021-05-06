@@ -1,10 +1,10 @@
 package routes
 
 import (
-	"learning-go/controller"
-	"learning-go/middlewares"
-	repository "learning-go/repositories"
-	service "learning-go/services"
+	"learning-go/api/controller"
+	"learning-go/api/middlewares"
+	repository "learning-go/api/repositories"
+	service "learning-go/api/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

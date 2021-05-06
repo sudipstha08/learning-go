@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"learning-go/controller"
-	service "learning-go/services"
+	"learning-go/api/controller"
+	service "learning-go/api/services"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

@@ -1,10 +1,9 @@
 package routes
 
-import "github.com/gin-gonic/gin"
-
 import (
-	"learning-go/controller"
+	"learning-go/api/controller"
 
+	"github.com/gin-gonic/gin"
 )
 
 func CsvRoutes(route *gin.Engine) {

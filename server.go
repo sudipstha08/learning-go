@@ -2,8 +2,8 @@ package main
 
 import (
 	"io"
-	repository "learning-go/repositories"
-	"learning-go/routes"
+	repository "learning-go/api/repositories"
+	"learning-go/api/routes"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -22,6 +22,8 @@ func setupLogOutput() {
 }
 
 func main() {
+	Router := gin.Default()
+
 	// CLOSE DATABASE
 	defer videoRepository.CloseDB()
 
@@ -29,5 +31,14 @@ func main() {
 
 	// LOAD ENV VARIABLES
 	godotenv.Load(".env")
+
+	// INIT ROUTES
 	routes.GetRoutes()
+
+	// RUN APP
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "5000"
+	}
+	Router.Run(":" + port)
 }

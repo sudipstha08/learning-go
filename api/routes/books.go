@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"learning-go/controller"
+	"learning-go/api/controller"
 
 	"github.com/gin-gonic/gin"
 )

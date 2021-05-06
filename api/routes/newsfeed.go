@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"learning-go/httpd/handler"
-	"learning-go/httpd/platform/newsfeed"
+	"learning-go/api/httpd/handler"
+	"learning-go/api/httpd/platform/newsfeed"
 
 	"github.com/gin-gonic/gin"
 )
