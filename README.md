@@ -52,6 +52,7 @@
 13. [https://www.golangprograms.com/go-language.html]
 14. [https://medium.com/easyread/today-i-learned-golang-live-reload-for-development-using-docker-compose-air-ecc688ee076]
 15. [https://www.google.com/recaptcha/admin/create]
+16. [https://devhints.io/go]
 
 ### Live reloading 
 - reloads or refreshes the entire app when a file changes. For example, if you were four links deep into your navigation and saved a change, live reloading would restart the app and load the app back to the initial route.

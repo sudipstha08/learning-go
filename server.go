@@ -2,8 +2,8 @@ package main
 
 import (
 	"io"
-	repository "learning-go/repositories"
-	"learning-go/routes"
+	repository "learning-go/api/repositories"
+	"learning-go/api/routes"
 	"os"
 
 	"github.com/joho/godotenv"

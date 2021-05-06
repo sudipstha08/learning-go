@@ -2,7 +2,7 @@ package service
 
 import (
 	"learning-go/models"
-	"learning-go/repositories"
+	"learning-go/api/repositories"
 )
 
 type VideoService interface {

@@ -1,9 +1,10 @@
 package controller
 
 import (
+	service "learning-go/api/services"
+	"learning-go/models"
+
 	"github.com/gin-gonic/gin"
-	"learning-go/services"
-	"learning-go/dto"
 )
 
 type LoginController interface {
@@ -24,7 +25,7 @@ func NewLoginController(loginService service.LoginService,
 }
 
 func (controller *loginController) Login(ctx *gin.Context) string {
-	var credentials dto.Credentials
+	var credentials models.Credentials
 	err := ctx.ShouldBind(&credentials)
 	if err != nil {
 		return ""

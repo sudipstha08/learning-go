@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"learning-go/httpd/platform/newsfeed"
+	"learning-go/api/httpd/platform/newsfeed"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

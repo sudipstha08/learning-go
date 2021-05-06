@@ -6,11 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// type ArticlesRoutes struct {
-// 	controller controller.ArticlesController
-// 	router infrastructures.Router
-// }
-
 func ArticlesRoutes(route *gin.Engine) {
 	articlesRoutes := route.Group("/articles")
 	{
