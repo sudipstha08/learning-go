@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"learning-go/entity"
+	"learning-go/models"
 
 	"github.com/jinzhu/gorm"
 
@@ -9,10 +9,10 @@ import (
 )
 
 type VideoRepository interface {
-	Save(video entity.Video)
-	Update(video entity.Video)
-	Delete(video entity.Video)
-	FindAll() []entity.Video
+	Save(video models.Video)
+	Update(video models.Video)
+	Delete(video models.Video)
+	FindAll() []models.Video
 	CloseDB()
 }
 
@@ -25,7 +25,7 @@ func NewVideoRepository() VideoRepository {
 	if err != nil {
 		panic("Failed to connect database")
 	}
-	db.AutoMigrate(&entity.Video{}, &entity.Person{})
+	db.AutoMigrate(&models.Video{}, &models.Person{})
 	return &database{
 		connection: db,
 	}
@@ -38,18 +38,18 @@ func (db *database) CloseDB() {
 	}
 }
 
-func (db *database) Save(video entity.Video) {
+func (db *database) Save(video models.Video) {
 	// reference to the struct
 	db.connection.Create(&video)
 }
-func (db *database) Update(video entity.Video) {
+func (db *database) Update(video models.Video) {
 	db.connection.Save(&video)
 }
-func (db *database) Delete(video entity.Video) {
+func (db *database) Delete(video models.Video) {
 	db.connection.Delete(&video)
 }
-func (db *database) FindAll() []entity.Video {
-	var videos []entity.Video
+func (db *database) FindAll() []models.Video {
+	var videos []models.Video
 	db.connection.Set("gorm:auto_preload", true).Find(&videos)
 	return videos
 }

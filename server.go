@@ -2,8 +2,8 @@ package main
 
 import (
 	"io"
-	"learning-go/infrastructures"
 	repository "learning-go/repositories"
+	"learning-go/routes"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -29,5 +29,5 @@ func main() {
 
 	// LOAD ENV VARIABLES
 	godotenv.Load(".env")
-	infrastructures.GetRoutes()
+	routes.GetRoutes()
 }

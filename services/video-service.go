@@ -1,15 +1,15 @@
 package service
 
 import (
-	"learning-go/entity"
+	"learning-go/models"
 	"learning-go/repositories"
 )
 
 type VideoService interface {
-	Save(entity.Video) entity.Video
-	Update(video entity.Video)
-	Delete(video entity.Video)
-	FindAll() []entity.Video
+	Save(models.Video) models.Video
+	Update(video models.Video)
+	Delete(video models.Video)
+	FindAll() []models.Video
 }
 
 type videoService struct {
@@ -26,21 +26,21 @@ func New(repo repository.VideoRepository) VideoService {
 	}
 }
 
-func (service *videoService) Save(video entity.Video) entity.Video {
+func (service *videoService) Save(video models.Video) models.Video {
 	// service.videos = append(service.videos, video)
 	service.videoRepository.Save(video)
 	return video
 }
 
-func (service *videoService) Update(video entity.Video) {
+func (service *videoService) Update(video models.Video) {
 	service.videoRepository.Update(video)
 }
 
-func (service *videoService) Delete(video entity.Video) {
+func (service *videoService) Delete(video models.Video) {
 	service.videoRepository.Delete(video)
 }
 
-func (service *videoService) FindAll() []entity.Video {
+func (service *videoService) FindAll() []models.Video {
 	return service.videoRepository.FindAll()
 
 }
