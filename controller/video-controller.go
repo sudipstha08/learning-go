@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"learning-go/entity"
+	"learning-go/models"
 	"learning-go/services"
 	"learning-go/validators"
 	"strconv"
@@ -13,7 +13,7 @@ import (
 )
 
 type VideoController interface {
-	FindAll() []entity.Video
+	FindAll() []models.Video
 	Save(ctx *gin.Context) error
 	Update(ctx *gin.Context) error
 	Delete(ctx *gin.Context) error
@@ -34,12 +34,12 @@ func New(service service.VideoService) VideoController {
 	}
 }
 
-func (c *controller) FindAll() []entity.Video {
+func (c *controller) FindAll() []models.Video {
 	return c.service.FindAll()
 }
 
 func (c *controller) Save(ctx *gin.Context) error {
-	var video entity.Video
+	var video models.Video
 	err := ctx.ShouldBindJSON(&video)
 	if err != nil {
 		return err
@@ -53,7 +53,7 @@ func (c *controller) Save(ctx *gin.Context) error {
 }
 
 func (c *controller) Update(ctx *gin.Context) error {
-	var video entity.Video
+	var video models.Video
 	err := ctx.ShouldBindJSON(&video)
 	if err != nil {
 		return err
@@ -74,7 +74,7 @@ func (c *controller) Update(ctx *gin.Context) error {
 }
 
 func (c *controller) Delete(ctx *gin.Context) error {
-	var video entity.Video
+	var video models.Video
 	id, err := strconv.ParseUint(ctx.Param("id"), 0, 0)
 
 	if err != nil {

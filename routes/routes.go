@@ -1,14 +1,14 @@
 package routes
 
 import (
-	// "learning-go/routes"
+	"learning-go/infrastructures"
 	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
-type Server struct {
-	Gin *gin.Engine
+type Router struct {
+	Route infrastructures.Server
 }
 
 func GetRoutes() {
@@ -27,9 +27,6 @@ func GetRoutes() {
 	FileRoutes(Router)
 	CsvRoutes(Router)
 
-	// routes.BooksRoutes(Router)
-
-	// LISTEN AND SERVE ON 127.0.0.1:5000
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "5000"

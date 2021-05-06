@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -11,10 +10,6 @@ import (
 // 	controller controller.ArticlesController
 // 	router infrastructures.Router
 // }
-
-func getArticles() {
-	fmt.Println("Hello this is articles")
-}
 
 func ArticlesRoutes(route *gin.Engine) {
 	articlesRoutes := route.Group("/articles")
