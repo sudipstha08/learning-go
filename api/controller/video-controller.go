@@ -3,7 +3,7 @@ package controller
 import (
 	"learning-go/models"
 	"learning-go/api/services"
-	"learning-go/validators"
+	"learning-go/api/validators"
 	"strconv"
 
 	"net/http"

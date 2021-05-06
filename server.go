@@ -22,6 +22,8 @@ func setupLogOutput() {
 }
 
 func main() {
+	Router := gin.Default()
+
 	// CLOSE DATABASE
 	defer videoRepository.CloseDB()
 
@@ -29,5 +31,14 @@ func main() {
 
 	// LOAD ENV VARIABLES
 	godotenv.Load(".env")
+
+	// INIT ROUTES
 	routes.GetRoutes()
+
+	// RUN APP
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "5000"
+	}
+	Router.Run(":" + port)
 }
