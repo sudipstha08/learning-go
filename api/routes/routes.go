@@ -18,4 +18,5 @@ func GetRoutes(Router *gin.Engine) {
 	NewsFeedRoutes(Router)
 	FileRoutes(Router)
 	CsvRoutes(Router)
+	CookieRoutes(Router)
 }
