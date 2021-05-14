@@ -25,6 +25,8 @@ func GetRoutes() {
 	routes.AuthRoutes(Router)
 	routes.NewsFeedRoutes(Router)
 	routes.FileRoutes(Router)
+	routes.TestRoutes(Router)
+	routes.BooksRoutes(Router)
 
 	// LISTEN AND SERVE ON 127.0.0.1:5000
 	port := os.Getenv("PORT")
