@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	uuid "github.com/satori/go.uuid"
 )
 
 func SetMiddlewareAuthentication() gin.HandlerFunc {
@@ -22,5 +23,12 @@ func SetMiddlewareAuthentication() gin.HandlerFunc {
 		// access the status we are sending
 		status := c.Writer.Status()
 		fmt.Println("------STATUS--------", status)
+	}
+}
+
+func RequestIdMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Writer.Header().Set("X-Request-Id", uuid.NewV4().String())
+		c.Next()
 	}
 }
