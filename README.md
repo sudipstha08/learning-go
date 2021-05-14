@@ -21,6 +21,7 @@
 | go list             | list all installed packages         |
 | go run              | compile temporary files and run the application |
 | go mod init go_module | initialize the current directory as the root of the module |
+| go mod tidy | adds any missing modules necessary to build the current module's |
 
 ### :two: TECHNOLOGIES USED
 |    Tools    |     Description          |

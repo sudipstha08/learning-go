@@ -4,8 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetRoutes() {
-	Router := gin.Default()
+func GetRoutes(Router *gin.Engine) {
 	Router.Static("/css", "./templates/css")
 	Router.LoadHTMLGlob("templates/*.html")
 	// Router.Use(gin.Recovery(), gin.Logger())

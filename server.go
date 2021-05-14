@@ -33,7 +33,7 @@ func main() {
 	godotenv.Load(".env")
 
 	// INIT ROUTES
-	routes.GetRoutes()
+	routes.GetRoutes(Router)
 
 	// RUN APP
 	port := os.Getenv("PORT")
