@@ -12,7 +12,8 @@ func SetMiddlewareAuthentication() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		t := time.Now()
 
-		// Set example variable
+		// Set UserID variable
+		// Set is used to store a new key/value pair exclusively for this context.
 		c.Set("UserID", "12345")
 		// before request
 		fmt.Println("---------Before next-------", time.Since(t).Minutes())

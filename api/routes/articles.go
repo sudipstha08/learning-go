@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"learning-go/middlewares"
+	"learning-go/api/middlewares"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

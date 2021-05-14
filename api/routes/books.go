@@ -2,7 +2,7 @@ package routes
 
 import (
 	"learning-go/api/controller"
-	"learning-go/middlewares"
+	"learning-go/api/middlewares"
 
 	"github.com/gin-gonic/gin"
 )
