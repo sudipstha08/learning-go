@@ -3,9 +3,9 @@ package routes
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"learning-go/api/controller"
 
+	"github.com/gin-gonic/gin"
 )
 
 func FileRoutes(route *gin.Engine) {
