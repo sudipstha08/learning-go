@@ -19,4 +19,5 @@ func GetRoutes(Router *gin.Engine) {
 	FileRoutes(Router)
 	CsvRoutes(Router)
 	CookieRoutes(Router)
+	ChatRoutes(Router)
 }
