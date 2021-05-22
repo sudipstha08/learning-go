@@ -40,7 +40,7 @@ func HandleSendGmail(c *gin.Context) {
 }
 
 func HandleSendMail(c *gin.Context) {
-	sender := service.NewSender(os.Getenv("GMAIL_MAIL"), os.Getenv("GMAIL_PASSWORD"))
+	sender := service.NewSender(os.Getenv("GMAIL"), os.Getenv("GMAIL_PASSWORD"))
 	// sender := service.Sender{os.Getenv("GMAIL_MAIL"), os.Getenv("GMAIL_PASSWORD")}
 
 	//The receiver needs to be in slice as the receive supports multiple receiver
