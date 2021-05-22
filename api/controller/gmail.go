@@ -1,17 +1,20 @@
 package controller
 
 import (
+	"io/ioutil"
+	service "learning-go/api/services"
 	"log"
 	"net/http"
 	"net/smtp"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
 func HandleSendGmail(c *gin.Context) {
-	from := "shresthation@gmail.com"
-	pass := "Dev@Sudip_1997g"
-	to := "sudipstha08@gmail.com"
+	from := os.Getenv("GMAIL_MAIL")
+	pass := os.Getenv("GMAIL_PASSWORD")
+	to := "testmail@mailinator.com"
 
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
@@ -36,6 +39,41 @@ func HandleSendGmail(c *gin.Context) {
 	})
 }
 
-// https://github.com/tangingw/go_smtp/blob/master/send_mail.go
+func HandleSendMail(c *gin.Context) {
+	sender := service.NewSender(os.Getenv("GMAIL_MAIL"), os.Getenv("GMAIL_PASSWORD"))
+	// sender := service.Sender{os.Getenv("GMAIL_MAIL"), os.Getenv("GMAIL_PASSWORD")}
+
+	//The receiver needs to be in slice as the receive supports multiple receiver
+	Receiver := []string{"johncena7@mailinator.com", "larrypage@mailinator.com"}
+
+	Subject := "Testing HTLML Email from golang"
+	currentDir, err := os.Getwd()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err,
+		})
+		return
+	}
+	message, err := ioutil.ReadFile(currentDir + "/templates/email.html")
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Error occured",
+		})
+		log.Fatal("Error finding the file :", err)
+		return
+	}
+	bodyMessage := sender.WriteHTMLEmail(Receiver, Subject, string(message))
+	err = sender.SendMail(Receiver, Subject, bodyMessage)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err,
+		})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"success": "Mail sent successfully",
+	})
+}
+
 // https://pkg.go.dev/google.golang.org/api/gmail/v1#hdr-Creating_a_client
 // https://developers.google.com/gmail/api/quickstart/go

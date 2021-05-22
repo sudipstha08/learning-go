@@ -10,5 +10,6 @@ func GmailRoutes(route *gin.Engine) {
 	gmailRoutes := route.Group("/gmail")
 	{
 		gmailRoutes.POST("/send", controller.HandleSendGmail)
+		gmailRoutes.POST("/send-mail", controller.HandleSendMail)
 	}
 }
