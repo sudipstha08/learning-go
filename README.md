@@ -64,10 +64,9 @@
 - only refreshes the files that were changed without losing the state of the app. For example, if you were four links deep into your navigation and saved a change to some styling, the state would not change, but the new styles would appear on the page without having to navigate back to the page you are on because you would still be on the same page.
 
 ### Fix
+- Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials mt24sm3123297pjb.18 - gsmtp
 ```
-5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials mt24sm3123297pjb.18 - gsmtp
-
-- Goto your gmail security settings and allow from less secured apps
+Goto your gmail security settings and allow from less secured apps
 ```
 
 ### Sentry :book:
@@ -75,12 +74,12 @@
 
 - Sentry supports every major language, framework, and library.
   
--You can get started for free. Pricing depends on the number of monthly events, transactions, and attachments that you send Sentry
+- You can get started for free. Pricing depends on the number of monthly events, transactions, and attachments that you send Sentry
 
--Sentry doesn’t impact a web site’s performance.Sentry is a listener/handler for errors that asynchronously sends out the error/event to Sentry.io. This is non-blocking. The error/event only goes out if this is an error.
+- Sentry doesn’t impact a web site’s performance.Sentry is a listener/handler for errors that asynchronously sends out the error/event to Sentry.io. This is non-blocking. The error/event only goes out if this is an error.
 Global handlers have almost no impact as well, as they are native APIs provided by the browsers.
 
--The best way to think about things is this: logging provides you with a trail of events. Often those events are errors, but many times they're simply informational. Sentry is fundamentally different because we focus on exceptions, or in other words, we capture application crashes.
+- The best way to think about things is this: logging provides you with a trail of events. Often those events are errors, but many times they're simply informational. Sentry is fundamentally different because we focus on exceptions, or in other words, we capture application crashes.
 
 - To summarize, Sentry works with your application logging infrastructure, often integrating directly. It does not replace the need for those logs, and it's also not a destination for things that aren't actionable errors or crashes.
 
@@ -99,7 +98,7 @@ Global handlers have almost no impact as well, as they are native APIs provided 
 
 - DSNs are safe to keep public because they only allow submission of new events and related event data; they do not allow read access to any information.
 
--Where to Find Your DSN
+- Where to Find Your DSN
 If you forget your DSN, view Settings -> Projects -> Client Keys (DSN) in sentry.io.
 
 - The Parts of the DSN
