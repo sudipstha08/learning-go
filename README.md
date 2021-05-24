@@ -2,7 +2,7 @@
   * Statically typed
   * Compiled programming language
 ### :one: BASIC COMMANDS
-|       Commands      |             Description             |
+|       commands      |             description             |
 |---------------------|-------------------------------------|
 | make dev            | run dev server                      |
 | go                  | list go commands                    |
@@ -23,17 +23,17 @@
 | go mod init go_module | initialize the current directory as the root of the module |
 | go mod tidy | adds any missing modules necessary to build the current module's |
 
-### :two: TECHNOLOGIES USED
-|    Tools    |     Description          |
-|-------------|--------------------------|
-|   Go        |    Programming Language  |
-|   Gin       |    HTTP web frameweok    |
-|   JWT       |      Authorization       |
-|   GORM      | Full featured Go ORM library |
-|   SQLite    | Small SQL database engine    |
+### :two: TECH STACKS
+|    Tools    |     Description              |
+|-------------|------------------------------|
+|   `go`      |    Programming Language      |
+|   `gin`     |    HTTP web frameweok        |
+|   `jwt`     |      Authorization           |
+|   `gorm`    | Full featured Go ORM library |
+|   `sqlite`  | Small SQL database engine    |
 
 ### :three: PROJECT SETUP
-  1. Clone the repo
+  1. Clone the `repo`
   2. Create `.env` file in the root directory with the help of `.env.example` file
   3. Run app `make dev`
 
