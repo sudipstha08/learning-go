@@ -5,17 +5,16 @@ import (
 	"learning-go/api/middlewares"
 	repository "learning-go/api/repositories"
 	service "learning-go/api/services"
+	"learning-go/utils"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-
-
 var (
 	videoRepository repository.VideoRepository = repository.NewVideoRepository()
-	videoService    service.VideoService         = service.New(videoRepository)
-	jwtService      service.JWTService           = service.NewJWTService()
+	videoService    service.VideoService       = service.New(videoRepository)
+	jwtService      service.JWTService         = service.NewJWTService()
 
 	videoController controller.VideoController = controller.New(videoService)
 )
@@ -31,6 +30,7 @@ func VideosRoute(route *gin.Engine) {
 		apiRoutes.POST("/videos", func(ctx *gin.Context) {
 			err := videoController.Save(ctx)
 			if err != nil {
+				utils.SendMsgToSentry(ctx, err.Error())
 				ctx.JSON(http.StatusBadRequest, gin.H{
 					"Error in adding videos": err.Error(),
 				})
@@ -42,6 +42,7 @@ func VideosRoute(route *gin.Engine) {
 		apiRoutes.PUT("/videos/:id", func(ctx *gin.Context) {
 			err := videoController.Update(ctx)
 			if err != nil {
+				utils.SendMsgToSentry(ctx, err.Error())
 				ctx.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})
@@ -55,6 +56,7 @@ func VideosRoute(route *gin.Engine) {
 		apiRoutes.DELETE("/videos/:id", func(ctx *gin.Context) {
 			err := videoController.Delete(ctx)
 			if err != nil {
+				utils.SendMsgToSentry(ctx, err.Error())
 				ctx.JSON(http.StatusBadRequest, gin.H{
 					"error": err.Error(),
 				})

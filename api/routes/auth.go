@@ -3,6 +3,7 @@ package routes
 import (
 	"learning-go/api/controller"
 	service "learning-go/api/services"
+	"learning-go/utils"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -28,6 +29,7 @@ func AuthRoutes(route *gin.Engine) {
 				"token": token,
 			})
 		} else {
+			utils.SendMsgToSentry(ctx, "Invalud username or password")
 			ctx.JSON(http.StatusUnauthorized, gin.H{
 				"error": "Invalid username or password",
 			})

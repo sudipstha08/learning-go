@@ -1,9 +1,10 @@
 package controller
 
 import (
-	"learning-go/models"
-	"learning-go/api/services"
+	service "learning-go/api/services"
 	"learning-go/api/validators"
+	"learning-go/models"
+	"learning-go/utils"
 	"strconv"
 
 	"net/http"
@@ -46,6 +47,7 @@ func (c *controller) Save(ctx *gin.Context) error {
 	}
 	err = validate.Struct(video)
 	if err != nil {
+		utils.SendMsgToSentry(ctx, err.Error())
 		return err
 	}
 	c.service.Save(video)
@@ -56,17 +58,20 @@ func (c *controller) Update(ctx *gin.Context) error {
 	var video models.Video
 	err := ctx.ShouldBindJSON(&video)
 	if err != nil {
+		utils.SendMsgToSentry(ctx, err.Error())
 		return err
 	}
 
 	id, err := strconv.ParseUint(ctx.Param("id"), 0, 0)
 	if err != nil {
+		utils.SendMsgToSentry(ctx, err.Error())
 		return err
-	} 
+	}
 	video.ID = id
 
 	err = validate.Struct(video)
 	if err != nil {
+		utils.SendMsgToSentry(ctx, err.Error())
 		return err
 	}
 	c.service.Update(video)
@@ -78,6 +83,7 @@ func (c *controller) Delete(ctx *gin.Context) error {
 	id, err := strconv.ParseUint(ctx.Param("id"), 0, 0)
 
 	if err != nil {
+		utils.SendMsgToSentry(ctx, err.Error())
 		return err
 	}
 	video.ID = id

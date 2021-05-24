@@ -11,5 +11,6 @@ func GmailRoutes(route *gin.Engine) {
 	{
 		gmailRoutes.POST("/send", controller.HandleSendGmail)
 		gmailRoutes.POST("/send-mail", controller.HandleSendMail)
+		gmailRoutes.POST("/sentry", controller.SentryTest)
 	}
 }

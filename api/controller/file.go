@@ -3,6 +3,7 @@ package controller
 import (
 	"fmt"
 	"io"
+	"learning-go/utils"
 	"log"
 	"net/http"
 	"os"
@@ -14,12 +15,14 @@ import (
 func Upload(c *gin.Context) {
 	file, header, err := c.Request.FormFile("file")
 	if err != nil {
+		utils.SendMsgToSentry(c, err.Error())
 		c.String(http.StatusBadRequest, fmt.Sprintf("file err : %s", err.Error()))
 		return
 	}
 	filename := header.Filename
 	out, err := os.Create("public/" + filename)
 	if err != nil {
+		utils.SendMsgToSentry(c, err.Error())
 		log.Fatal(err)
 	}
 	defer out.Close()

@@ -6,9 +6,10 @@ import (
 	"os"
 
 	"io/ioutil"
+	"learning-go/models"
+	"learning-go/utils"
 	"net/http"
 	"net/url"
-	"learning-go/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -38,6 +39,8 @@ func VerifyReCaptcha(ctx *gin.Context) {
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
+		utils.SendMsgToSentry(ctx, err.Error())
+
 		ctx.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
@@ -46,6 +49,7 @@ func VerifyReCaptcha(ctx *gin.Context) {
 
 	var responseData models.RecaptchaResponse
 	if err := json.Unmarshal(body, &responseData); err != nil {
+		utils.SendMsgToSentry(ctx, err.Error())
 		ctx.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
