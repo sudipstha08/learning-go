@@ -56,12 +56,6 @@
 16. [https://devhints.io/go]
 17. [https://docs.sentry.io/platforms/go/]
 
-### Live reloading 
-- reloads or refreshes the entire app when a file changes. For example, if you were four links deep into your navigation and saved a change, live reloading would restart the app and load the app back to the initial route.
-  [https://techinscribed.com/5-ways-to-live-reloading-go-applications/]
-
-### Hot reloading 
-- only refreshes the files that were changed without losing the state of the app. For example, if you were four links deep into your navigation and saved a change to some styling, the state would not change, but the new styles would appear on the page without having to navigate back to the page you are on because you would still be on the same page.
 
 ### Fix
 - Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials mt24sm3123297pjb.18 - gsmtp
@@ -107,6 +101,9 @@ The DSN configures the protocol, public key, server address, and project identif
 {PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}{PATH}/{PROJECT_ID}
 ```
 
-- Integration with slack 
-  Triage, resolve, and ignore Sentry issues directly from Slack
-  https://docs.sentry.io/product/integrations/slack/
+### Live reloading 
+- reloads or refreshes the entire app when a file changes. For example, if you were four links deep into your navigation and saved a change, live reloading would restart the app and load the app back to the initial route.
+  [https://techinscribed.com/5-ways-to-live-reloading-go-applications/]
+
+### Hot reloading 
+- only refreshes the files that were changed without losing the state of the app. For example, if you were four links deep into your navigation and saved a change to some styling, the state would not change, but the new styles would appear on the page without having to navigate back to the page you are on because you would still be on the same page.
