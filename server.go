@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	repository "learning-go/api/repositories"
 	"learning-go/api/routes"
+	"learning-go/infrastructures"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -24,6 +26,9 @@ func setupLogOutput() {
 func main() {
 	Router := gin.Default()
 
+	// Sentry initialization
+	infrastructures.InitSentry(Router)
+
 	// CLOSE DATABASE
 	defer videoRepository.CloseDB()
 
@@ -34,7 +39,10 @@ func main() {
 
 	// INIT ROUTES
 	routes.GetRoutes(Router)
-
+	fmt.Println("-------STARTING APPLICATION-------")
+	fmt.Println("----------------------------------")
+	fmt.Println("--------🔥 LEARNING GO 🔥---------")
+	fmt.Println("----------------------------------")
 	// RUN APP
 	port := os.Getenv("PORT")
 	if port == "" {

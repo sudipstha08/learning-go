@@ -3,6 +3,7 @@ package controller
 import (
 	"io/ioutil"
 	service "learning-go/api/services"
+	"learning-go/utils"
 	"log"
 	"net/http"
 	"net/smtp"
@@ -10,6 +11,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+
+func SentryTest(c *gin.Context) {
+	c.JSON(http.StatusUnauthorized, gin.H{
+		"error": "Error occured",
+	})
+	utils.SendMsgToSentry(c, "Error sentry -----")
+}
 
 func HandleSendGmail(c *gin.Context) {
 	from := os.Getenv("GMAIL_MAIL")
@@ -27,6 +35,7 @@ func HandleSendGmail(c *gin.Context) {
 
 	if err != nil {
 		log.Printf("smtp error: %s", err)
+		utils.SendMsgToSentry(c, err.Error())
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"error": err,
 		})
@@ -49,6 +58,7 @@ func HandleSendMail(c *gin.Context) {
 	Subject := "Testing HTLML Email from golang"
 	currentDir, err := os.Getwd()
 	if err != nil {
+		utils.SendMsgToSentry(c, err.Error())
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err,
 		})
@@ -59,12 +69,14 @@ func HandleSendMail(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Error occured",
 		})
+		utils.SendMsgToSentry(c, err.Error())
 		log.Fatal("Error finding the file :", err)
 		return
 	}
 	bodyMessage := sender.WriteHTMLEmail(Receiver, Subject, string(message))
 	err = sender.SendMail(Receiver, Subject, bodyMessage)
 	if err != nil {
+		utils.SendMsgToSentry(c, err.Error())
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err,
 		})
