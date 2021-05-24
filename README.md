@@ -24,10 +24,10 @@
 | go mod tidy | adds any missing modules necessary to build the current module's |
 
 ### :two: TECH STACKS
-|    Tools    |     Description              |
+|    tools    |     description              |
 |-------------|------------------------------|
-|   `go`      |    Programming Language      |
-|   `gin`     |    HTTP web frameweok        |
+|   `go`      |    programming language      |
+|   `gin`     |    http web framework for go |
 |   `jwt`     |      Authorization           |
 |   `gorm`    | Full featured Go ORM library |
 |   `sqlite`  | Small SQL database engine    |
