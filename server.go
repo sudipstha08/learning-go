@@ -39,14 +39,16 @@ func main() {
 
 	// INIT ROUTES
 	routes.GetRoutes(Router)
-	fmt.Println("-------STARTING APPLICATION-------")
+	fmt.Println("-------- STARTING APPLICATION 🚚 --------")
 	fmt.Println("----------------------------------")
-	fmt.Println("--------🔥 LEARNING GO 🔥---------")
+	fmt.Println("--------🌱 LEARNING GO 🌱---------")
 	fmt.Println("----------------------------------")
 	// RUN APP
+
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "5000"
+		port = "5005"
 	}
+	fmt.Printf("------ APPLICATION UP & RUNNING AT PORT %s 🏃 ------", port)
 	Router.Run(":" + port)
 }

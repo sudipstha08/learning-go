@@ -1,10 +1,14 @@
 package routes
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 )
 
 func GetRoutes(Router *gin.Engine) {
+	fmt.Println("-------- SETTING UP ROUTES 📦 .........")
+	 
 	Router.Static("/css", "./templates/css")
 	Router.LoadHTMLGlob("templates/*.html")
 	// Router.Use(gin.Recovery(), gin.Logger())
@@ -21,4 +25,6 @@ func GetRoutes(Router *gin.Engine) {
 	CookieRoutes(Router)
 	ChatRoutes(Router)
 	GmailRoutes(Router)
+	fmt.Println("-------- ROUTES SETUP COMPLETE 🚉 -------")
+	fmt.Println("-------------------------------------")
 }

@@ -22,14 +22,14 @@ func InitSentry(Router *gin.Engine) {
 		**/
 		Dsn: os.Getenv("SENTRY_DSN"),
 	}); err != nil {
-		fmt.Printf("Sentry initialization failed: %v\n", err)
+		fmt.Printf("Sentry initialization failed 🛑: %v\n", err)
 	}
 
 	// Flush buffered events before the program terminates.
 	defer sentry.Flush(2 * time.Second)
 
 	sentry.CaptureMessage("Sentry initialization succeed 🎉")
-	fmt.Println("--------Sentry Initialized 🎉----")
+	fmt.Println("--------- SENTRY INITIALIZED 🎉 ----------")
 
 	// attach the handler as one of your middleware
 	Router.Use(sentrygin.New(sentrygin.Options{

@@ -1,6 +1,7 @@
 # LEARNING-GO :slightly_smiling_face:
   * Statically typed
   * Compiled programming language
+  
 ### :one: BASIC COMMANDS
 |       commands      |             description             |
 |---------------------|-------------------------------------|
@@ -59,7 +60,7 @@
 
 ### Fix
 - Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials mt24sm3123297pjb.18 - gsmtp
-```
+```sh
 Goto your gmail security settings and allow from less secured apps
 ```
 
@@ -97,7 +98,7 @@ If you forget your DSN, view Settings -> Projects -> Client Keys (DSN) in sentry
 
 - The Parts of the DSN
 The DSN configures the protocol, public key, server address, and project identifier. It is composed of the following parts:
-```
+```sh
 {PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}{PATH}/{PROJECT_ID}
 ```
 
