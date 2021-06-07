@@ -26,6 +26,7 @@ func loadConfig() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	defer f.Close()
 
 	decoder := yaml.NewDecoder(f)
