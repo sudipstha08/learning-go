@@ -12,3 +12,5 @@ func SiteMapRoutes(route *gin.Engine) {
 		routes.GET("", controller.GetSiteMap)
 	}
 }
+
+
