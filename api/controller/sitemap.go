@@ -54,7 +54,6 @@ func GetSiteMap(c *gin.Context) {
 
 	marshaledData, _ := xml.MarshalIndent(sm, " ", "  ")
 
-	data := StyleSheet + string(marshaledData)
-
+	data := xml.Header + StyleSheet + string(marshaledData)
 	c.Data(http.StatusOK, "text/xml; charset=UTF-8", []byte(data))
 }
