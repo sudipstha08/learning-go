@@ -64,6 +64,7 @@ func HandleSendMail(c *gin.Context) {
 		})
 		return
 	}
+
 	message, err := ioutil.ReadFile(currentDir + "/templates/email.html")
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -74,6 +75,7 @@ func HandleSendMail(c *gin.Context) {
 		return
 	}
 	bodyMessage := sender.WriteHTMLEmail(Receiver, Subject, string(message))
+
 	err = sender.SendMail(Receiver, Subject, bodyMessage)
 	if err != nil {
 		utils.SendMsgToSentry(c, err.Error())

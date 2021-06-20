@@ -13,13 +13,13 @@ func main() {
 	start := time.Now()
 	go func() {
 		for i := 0; i < 3; i++ {
-			fmt.Println(i)
+			fmt.Println("FIRST: ", i)
 		}
 	}()
 
 	go func() {
 		for i := 0; i < 3; i++ {
-			fmt.Println(i)
+			fmt.Println("SECOND: ", i)
 		}
 	}()
 

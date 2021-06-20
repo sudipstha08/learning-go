@@ -1,0 +1,6 @@
+Het {{.Name}} {{.Email}}
+Hope you’re having a fantastic day.
+
+{{content}}
+
+Thank you.

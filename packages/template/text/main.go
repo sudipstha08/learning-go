@@ -26,7 +26,7 @@ func main() {
 
 	err = tmpl.Execute(buf, sweaters)
 	body := buf.String()
-	fmt.Println("body", body)
+	fmt.Println("--------body---------\n", body)
 	if err != nil {
 		fmt.Println("Error while executing", err)
 	}
