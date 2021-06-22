@@ -60,3 +60,5 @@ package controller
 // }
 
 // // https://astaxie.gitbooks.io/build-web-application-with-golang/content/en/07.1.html
+// https://github.com/beevik/etree
+// https://www.geeksforgeeks.org/displaying-xml-using-css/
