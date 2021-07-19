@@ -56,7 +56,12 @@ func HandleBucketFileUpload() gin.HandlerFunc {
 
 		storageService := service.NewGCPStorageService()
 
-		url, _ := storageService.UploadFile(c.Request, file, fileHeader)
+		url, err := storageService.UploadFile(c.Request, file, fileHeader)
+		if err != nil {
+			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
+				"message": err.Error(),
+			})
+		}
 
 		fmt.Println("url---------------------", url)
 		c.JSON(http.StatusOK, map[string]string{

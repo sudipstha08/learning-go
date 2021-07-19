@@ -30,14 +30,13 @@ func initStorageClient() *storage.Client {
 	return client
 }
 
-
 type gcpStorageService struct {
 	StorageClient *storage.Client
 }
 
 // GCPStorageService Interface
 type GCPStorageService interface {
-	UploadFile(req *http.Request,file multipart.File, fileHeader *multipart.FileHeader) (*url.URL, error)
+	UploadFile(req *http.Request, file multipart.File, fileHeader *multipart.FileHeader) (*url.URL, error)
 }
 
 // NewFirebaseAuthService constructor
@@ -50,29 +49,32 @@ func NewGCPStorageService() GCPStorageService {
 
 const googleStorage = "https://storage.googleapis.com/"
 
-func (sc *gcpStorageService) UploadFile(req *http.Request,file multipart.File, fileHeader *multipart.FileHeader) (*url.URL, error) {
+func (sc *gcpStorageService) UploadFile(
+	req *http.Request, file multipart.File,
+	fileHeader *multipart.FileHeader,
+) (*url.URL, error) {
 	fileName := fileHeader.Filename
-
-	directory := strings.Split(fileName,"/")
-	nameAndExtension := strings.Split(directory[len(directory)-1],".")
+	fmt.Println("file11--------------", file)
+	directory := strings.Split(fileName, "/")
+	nameAndExtension := strings.Split(directory[len(directory)-1], ".")
 	fileExtension := nameAndExtension[len(nameAndExtension)-1]
 	uniqueId := uuid.New()
 
 	fileName = strings.Replace(uniqueId.String(), "-", "", -1)
-	fileName = fmt.Sprintf("%v.%v",fileName,fileExtension)
+	fileName = fmt.Sprintf("%v.%v", fileName, fileExtension)
 	directory[len(directory)-1] = fileName
 
-	fileName = strings.Join(directory,"/")
+	fileName = strings.Join(directory, "/")
 
 	// storage bucket name
-	bucketName := "learning-go-7da5a.appspot.com/files"
+	bucketName := "learning-go-7da5a.appspot.com"
 	bucket := sc.StorageClient.Bucket(bucketName)
 	ctx := req.Context()
 	obj := bucket.Object(fileName).NewWriter(ctx)
 
 	obj.ContentType = fileHeader.Header.Get("Content-Type")
 	if _, err := io.Copy(obj, file); err != nil {
-		return nil,err
+		return nil, err
 	}
 
 	// Either
@@ -81,13 +83,13 @@ func (sc *gcpStorageService) UploadFile(req *http.Request,file multipart.File, f
 	// }
 
 	// or use access control list for given object
-	acl := bucket.Object(obj.Name).ACL() 
-	
+	acl := bucket.Object(obj.Name).ACL()
+
 	// close the object
 	if err := obj.Close(); err != nil {
-		return nil,err
+		return nil, err
 	}
-	
+
 	// ...or continued
 	// set access control list to give any user the permission to view the uploaded file
 	if err := acl.Set(ctx, storage.AllUsers, storage.RoleReader); err != nil {
