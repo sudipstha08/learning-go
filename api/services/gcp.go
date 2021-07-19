@@ -54,7 +54,6 @@ func (sc *gcpStorageService) UploadFile(
 	fileHeader *multipart.FileHeader,
 ) (*url.URL, error) {
 	fileName := fileHeader.Filename
-	fmt.Println("file11--------------", file)
 	directory := strings.Split(fileName, "/")
 	nameAndExtension := strings.Split(directory[len(directory)-1], ".")
 	fileExtension := nameAndExtension[len(nameAndExtension)-1]

@@ -13,7 +13,6 @@ import (
 func HandleBucketFileUpload() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		file, fileHeader, err := c.Request.FormFile("file")
-		fmt.Println("file----------------------------------", file)
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
 				"message": "No file is received",
@@ -25,7 +24,6 @@ func HandleBucketFileUpload() gin.HandlerFunc {
 		buff := make([]byte, 512)
 		_, err = file.Read(buff)
 		if err != nil {
-			fmt.Println("err-------------", err.Error())
 			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 				"message": err.Error(),
 			})
