@@ -26,6 +26,7 @@ func GetRoutes(Router *gin.Engine) {
 	ChatRoutes(Router)
 	GmailRoutes(Router)
 	SiteMapRoutes(Router)
+	BucketRoutes(Router)
 	fmt.Println("-------- ROUTES SETUP COMPLETE 🚉 -------")
 	fmt.Println("-------------------------------------")
 }

@@ -10,6 +10,8 @@
 
 - Within that claims-based identity framework, a secure token service is responsible for issuing, validating, renewing and cancelling security tokens. 
 
+<img src="/claims/claims.png" width="400" />
+
 ## REFERENCES
 1. https://en.wikipedia.org/wiki/Claims-based_identity
 2. https://kariera.future-processing.pl/blog/introduction-to-claims-based-authentication-and-authorization-in-net/
