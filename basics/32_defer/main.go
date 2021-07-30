@@ -45,3 +45,5 @@ func main() {
 }
 
 // https://medium.com/a-journey-with-go/go-how-does-defer-statement-work-1a9492689b6e
+// https://www.youtube.com/watch?v=t4Ps0yXEdXM
+// https://www.geeksforgeeks.org/defer-keyword-in-golang/#:~:text=In%20Go%20language%2C%20defer%20statements,until%20the%20nearby%20functions%20returns.
