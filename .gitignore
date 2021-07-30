@@ -12,7 +12,8 @@
 *.out
 gin.log
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+#Dependency directories (remove the comment below to include it)
+vendor/
 tmp
 serviceAccountKey.json
+
