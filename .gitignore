@@ -17,3 +17,8 @@ vendor/
 tmp
 serviceAccountKey.json
 
+#deploy
+basics
+docs
+
+
