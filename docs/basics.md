@@ -1,1 +1,0 @@
-- In Go, the capitalization of a type, function, etc. determines whether it is exported (accessible to other packages) or not. Names that are capitalized are exported ("public," essentially) while names that are not capitalized are unexported ("package private," essentially). Our Widget type therefore becomes widget:
